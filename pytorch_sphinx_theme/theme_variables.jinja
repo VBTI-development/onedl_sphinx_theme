@@ -1,62 +1,237 @@
-{%- set external_urls = {
-  'github': 'https://github.com/pytorch/pytorch',
-  'github_issues': 'https://github.com/pytorch/pytorch/issues',
-  'contributing': 'https://github.com/pytorch/pytorch/blob/master/CONTRIBUTING.md',
-  'docs': 'https://pytorch.org/docs/stable/index.html',
-  'twitter': 'https://twitter.com/pytorch',
-  'spotify': 'https://open.spotify.com/show/6UzHKeiy368jKfQMKKvJY5',
-  'apple': 'https://podcasts.apple.com/us/podcast/pytorch-developer-podcast/id1566080008',
-  'google': 'https://www.google.com/podcasts?feed=aHR0cHM6Ly9mZWVkcy5zaW1wbGVjYXN0LmNvbS9PQjVGa0lsOA%3D%3D',
-  'amazon': 'https://music.amazon.com/podcasts/7a4e6f0e-26c2-49e9-a478-41bd244197d0/PyTorch-Developer-Podcast?',
-  'linkedIn': 'https://www.linkedin.com/company/pytorch',
-  'facebook': 'https://www.facebook.com/pytorch',
-  'slack': 'https://pytorch.slack.com',
-  'discuss': 'https://discuss.pytorch.org',
-  'tutorials': 'https://pytorch.org/tutorials',
-  'previous_pytorch_versions': 'https://pytorch.org/previous-versions/',
-  'learn_basics': 'https://pytorch.org/tutorials/beginner/basics/intro.html',
-  'recipes': 'https://pytorch.org/tutorials/recipes/recipes_index.html',
-  'youtube_intro_series': 'https://pytorch.org/tutorials/beginner/introyt.html',
-  'contributor_awards_2023': 'https://pytorch.org/ecosystem/contributor-awards-2023',
-  'contributor_awards_2024': 'https://pytorch.org/ecosystem/contributor-awards-2024',
-  'docs_domains': 'https://pytorch.org/pytorch-domains',
-  'community_blog': 'https://pytorch.org/community-blog',
-  'community_module': 'https://pytorch.org/#community-module',
-  'videos': 'https://pytorch.org/videos',
-  'join_form': 'https://pytorch.org/join',
-  'home': 'https://pytorch.org/',
-  'events': 'https://pytorch.org/events',
-  'foundation': 'https://pytorch.org/foundation',
-  'community-stories': 'https://pytorch.org/community-stories',
-  'newsletter': 'https://pytorch.org/newsletter',
-  'get_started': 'https://pytorch.org/get-started',
-  'features': 'https://pytorch.org/features',
-  'ecosystem': 'https://pytorch.org/ecosystem',
-  'blog': 'https://pytorch.org/blog/',
-  'resources': 'https://pytorch.org/resources',
-  'support': 'https://pytorch.org/support',
-  'edge': 'https://pytorch.org/edge',
-  'executorch': 'https://pytorch.org/executorch-overview',
-  'executorch_docs': 'https://pytorch.org/executorch/stable/index.html',
-  'hub': 'https://pytorch.org/hub',
-  'governing_board': 'https://pytorch.org/governing-board',
-  'youtube': 'https://www.youtube.com/pytorch',
-  'brand_guidelines': 'https://pytorch.org/assets/brand-guidelines/PyTorch-Brand-Guidelines.pdf',
-  'community': 'https://pytorch.org/#community-module',
-  'credits': 'https://pytorch.org/credits',
-  'forums': 'https://discuss.pytorch.org/',
-  'tac': 'https://pytorch.org/tac',
-  'staff': 'https://pytorch.org/staff',
-  'contact_us': 'https://pytorch.org/contact-us',
-  'audio': 'https://pytorch.org/audio/stable/index.html',
-  'text': 'https://pytorch.org/text/stable/index.html',
-  'vision': 'https://pytorch.org/vision/stable/index.html',
-  'elastic': 'https://pytorch.org/elastic/',
-  'torchx': 'https://pytorch.org/torchx/',
-  'serve': 'https://pytorch.org/serve/',
-  'xla': 'https://pytorch.org/xla',
-  'data': 'https://pytorch.org/data',
-  'torcharrow': 'https://pytorch.org/torcharrow',
-  'torchrec': 'https://pytorch.org/torchrec'
-}
+{%- set shared_menu_en = [
+        {
+            'name':
+            'Docs',
+            'children': [
+                {
+                    'name': 'MMEngine',
+                    'url': 'https://mmengine.readthedocs.io/en/latest/',
+                },
+                {
+                    'name': 'MMCV',
+                    'url': 'https://mmcv.readthedocs.io/en/latest/',
+                },
+                {
+                    'name': 'MMEval',
+                    'url': 'https://mmeval.readthedocs.io/en/latest/',
+                },
+                {
+                    'name': 'MIM',
+                    'url': 'https://openmim.readthedocs.io/en/latest/',
+                },
+                {
+                    'name': 'MMAction2',
+                    'url': 'https://mmaction2.readthedocs.io/en/latest/',
+                },
+                {
+                    'name': 'MMPreTrain',
+                    'url':
+                    'https://mmpretrain.readthedocs.io/en/latest/',
+                },
+                {
+                    'name': 'MMDetection',
+                    'url': 'https://mmdetection.readthedocs.io/en/latest/',
+                },
+                {
+                    'name': 'MMDetection3D',
+                    'url': 'https://mmdetection3d.readthedocs.io/en/latest/',
+                },
+                {
+                    'name': 'MMagic',
+                    'url': 'https://mmagic.readthedocs.io/en/latest/',
+                },
+                {
+                    'name': 'MMOCR',
+                    'url': 'https://mmocr.readthedocs.io/en/latest/',
+                },
+                {
+                    'name': 'MMPose',
+                    'url': 'https://mmpose.readthedocs.io/en/latest/',
+                },
+                {
+                    'name': 'MMSegmentation',
+                    'url': 'https://mmsegmentation.readthedocs.io/en/latest/',
+                },
+                {
+                    'name': 'MMTracking',
+                    'url': 'https://mmtracking.readthedocs.io/en/latest/',
+                },
+                {
+                    'name': 'MMFlow',
+                    'url': 'https://mmflow.readthedocs.io/en/latest/',
+                },
+                {
+                    'name': 'MMFewShot',
+                    'url': 'https://mmfewshot.readthedocs.io/en/latest/',
+                },
+                {
+                    'name': 'MMHuman3D',
+                    'url': 'https://mmhuman3d.readthedocs.io/en/latest/',
+                },
+                {
+                    'name': 'MMRazor',
+                    'url': 'https://mmrazor.readthedocs.io/en/latest/',
+                },
+                {
+                    'name': 'MMDeploy',
+                    'url': 'https://mmdeploy.readthedocs.io/en/latest/',
+                },
+                {
+                    'name': 'MMRotate',
+                    'url': 'https://mmrotate.readthedocs.io/en/latest/',
+                },
+                {
+                    'name': 'MMYOLO',
+                    'url': 'https://mmyolo.readthedocs.io/en/latest/',
+                },
+            ]
+        },
+        {
+            'name':
+            'OpenMMLab',
+            'children': [
+                {
+                    'name': 'Homepage',
+                    'url': 'https://openmmlab.com/'
+                },
+                {
+                    'name': 'Open Platform',
+                    'url': 'https://platform.openmmlab.com/'
+                },
+                {
+                    'name': 'GitHub',
+                    'url': 'https://github.com/open-mmlab/'
+                },
+                {
+                    'name': 'Twitter',
+                    'url': 'https://twitter.com/OpenMMLab'
+                },
+                {
+                    'name': 'Zhihu',
+                    'url': 'https://zhihu.com/people/openmmlab'
+                },
+            ]
+        },
+    ]
 -%}
+
+{%- set shared_menu_cn = [
+        {
+            'name':
+            '文档',
+            'children': [
+                {
+                    'name': 'MMEngine',
+                    'url': 'https://mmengine.readthedocs.io/zh_CN/latest/',
+                },
+                {
+                    'name': 'MMCV',
+                    'url': 'https://mmcv.readthedocs.io/zh_CN/latest/',
+                },
+                {
+                    'name': 'MMEval',
+                    'url': 'https://mmeval.readthedocs.io/zh_CN/latest/',
+                },
+                {
+                    'name': 'MIM',
+                    'url': 'https://openmim.readthedocs.io/en/latest/'
+                },
+                {
+                    'name': 'MMAction2',
+                    'url': 'https://mmaction2.readthedocs.io/zh_CN/latest/',
+                },
+                {
+                    'name': 'MMPreTrain',
+                    'url':
+                    'https://mmpretrain.readthedocs.io/zh_CN/latest/',
+                },
+                {
+                    'name': 'MMDetection',
+                    'url': 'https://mmdetection.readthedocs.io/zh_CN/latest/',
+                },
+                {
+                    'name': 'MMDetection3D',
+                    'url':
+                    'https://mmdetection3d.readthedocs.io/zh_CN/latest/',
+                },
+                {
+                    'name': 'MMagic',
+                    'url': 'https://mmagic.readthedocs.io/zh_CN/latest/',
+                },
+                {
+                    'name': 'MMOCR',
+                    'url': 'https://mmocr.readthedocs.io/zh_CN/latest/',
+                },
+                {
+                    'name': 'MMPose',
+                    'url': 'https://mmpose.readthedocs.io/zh_CN/latest/',
+                },
+                {
+                    'name': 'MMSegmentation',
+                    'url':
+                    'https://mmsegmentation.readthedocs.io/zh_CN/latest/',
+                },
+                {
+                    'name': 'MMTracking',
+                    'url': 'https://mmtracking.readthedocs.io/zh_CN/latest/',
+                },
+                {
+                    'name': 'MMFlow',
+                    'url': 'https://mmflow.readthedocs.io/en/latest/',
+                },
+                {
+                    'name': 'MMFewShot',
+                    'url': 'https://mmfewshot.readthedocs.io/zh_CN/latest/',
+                },
+                {
+                    'name': 'MMHuman3D',
+                    'url': 'https://mmhuman3d.readthedocs.io/en/latest/',
+                },
+                {
+                    'name': 'MMRazor',
+                    'url': 'https://mmrazor.readthedocs.io/en/latest/',
+                },
+                {
+                    'name': 'MMDeploy',
+                    'url': 'https://mmdeploy.readthedocs.io/zh_CN/latest/',
+                },
+                {
+                    'name': 'MMRotate',
+                    'url': 'https://mmrotate.readthedocs.io/zh_CN/latest/',
+                },
+                {
+                    'name': 'MMYOLO',
+                    'url': 'https://mmyolo.readthedocs.io/zh_CN/latest/',
+                },
+            ]
+        },
+        {
+            'name':
+            'OpenMMLab',
+            'children': [
+                {
+                    'name': '官网',
+                    'url': 'https://openmmlab.com/'
+                },
+                {
+                    'name': '开放平台',
+                    'url': 'https://platform.openmmlab.com/'
+                },
+                {
+                    'name': 'GitHub',
+                    'url': 'https://github.com/open-mmlab/'
+                },
+                {
+                    'name': '推特',
+                    'url': 'https://twitter.com/OpenMMLab'
+                },
+                {
+                    'name': '知乎',
+                    'url': 'https://zhihu.com/people/openmmlab'
+                },
+            ]
+        },
+    ]
+-%}
+
+{%- set lang_menu_mapping = {'default': shared_menu_en, 'cn': shared_menu_cn, 'en': shared_menu_en} -%}
