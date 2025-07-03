@@ -20,7 +20,7 @@ copybutton_prompt_is_regexp = True
 ```
 
 ### Header Logo
-The header logo is OpenMMLab by default. Each repo should customize the logo by overriding the provided css class.
+The header logo is OneDL by default. Each repo should customize the logo by overriding the provided css class.
 
 We suggest putting all the html resources to `docs/_static`. First put the logo
 to `docs/_static/images/logo.png`, then write the following snippet to 
@@ -55,7 +55,7 @@ html_theme_options = {
         # A link
         {
             'name': 'GitHub',
-            'url': 'https://github.com/open-mmlab/'
+            'url': 'https://github.com/vbti-development/'
         }, 
         # A dropdown menu
         {
@@ -64,12 +64,12 @@ html_theme_options = {
                 # A vanilla dropdown item
                 {
                     'name': 'MMCV',
-                    'url': 'https://github.com/open-mmlab/mmcv',
+                    'url': 'https://github.com/vbti-development/onedl-mmcv',
                 },
                 # A dropdown item with a description
                 {
                     'name': 'MMDetection',
-                    'url': 'https://github.com/open-mmlab/mmdetection',
+                    'url': 'https://github.com/vbti-development/onedl-mmdetection',
                     'description': 'Object detection toolbox and benchmark'
                 },
             ], 
