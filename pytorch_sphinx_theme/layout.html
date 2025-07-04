@@ -105,29 +105,36 @@
       <div class="main-menu">
         <ul>
           {%- for menu in [theme_menu, shared_menu] %}
-          {%- for item in menu %}
-          {%- if item['children'] is defined %}
-          <li {% if item['active'] %}class="active docs-active" {% endif %}>
-            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
-              <a
-                class="resource-option {% if item['active'] %}with-down-blue-arrow{% else %}with-down-arrow{% endif %}">
-                {{ item['name'] }}
-              </a>
-              <div class="resources-dropdown-menu">
-                {%- for child in item['children'] %}
-                <a class="{%- if child['description'] is not none %}doc-dropdown-option{% endif %} nav-dropdown-item"
-                  href="{{ child['url'] }}" target="_blank">
-                  <span class="dropdown-title">{{ child['name'] }} </span>
-                  <p>{{ child['description'] if child['description'] is not none }}</p>
-                </a>
-                <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['hub'] }}">
-                  <span class="dropdown-title">Models (Beta)</span>
-                  <p>Discover, publish, and reuse pre-trained models</p>
-                </a>
-              </div>
-            </div>
+            {%- for item in menu %}
+              {%- if item['children'] is defined %}
+                <li {% if item['active'] %}class="active docs-active"{% endif %}>
+                  <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+                    <a class="resource-option {% if item['active'] %}with-down-blue-arrow{% else %}with-down-arrow{% endif %}">
+                      {{ item['name'] }}
+                    </a>
+                    <div class="resources-dropdown-menu">
+                      {%- for child in item['children'] %}
+                        <a class="{%- if child['description'] is not none %}doc-dropdown-option{% endif %} nav-dropdown-item" href="{{ child['url'] }}" target="_blank">
+                          <span class="dropdown-title">{{ child['name'] }} </span>
+                          <p>{{ child['description'] if child['description'] is not none }}</p>
+                        </a>
+                      {%- endfor %}
+                    </div>
+                  </div>
+                </li>
+              {%- else %}
+                <li>
+                  <a href="{{ item['url'] }}" target="_blank">{{ item['name'] }}</a>
+                </li>
+              {%- endif %}
+            {%- endfor %}
+          {%- endfor %}
+          <li>
+            <a class="nav-dropdown-item" href="{{ theme_variables.external_urls['hub'] }}">
+              <span class="dropdown-title">Models (Beta)</span>
+              <p>Discover, publish, and reuse pre-trained models</p>
+            </a>
           </li>
-
           <li>
             <a href="{{ theme_variables.external_urls['github'] }}">GitHub</a>
           </li>
@@ -296,7 +303,7 @@
   <script type="text/javascript" src="{{ pathto('_static/js/theme.js', 1) }}"></script>
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable({{ 'true' if theme_sticky_navigation|tobool else 'false' }});
+          SphinxRtdTheme.Navigation.enable(JSON.parse("{{ 'true' if theme_sticky_navigation|tobool else 'false' }}"));
       });
   </script>
 
