@@ -264,8 +264,10 @@
 
   <!-- Ensure jQuery is loaded before any scripts that use it -->
   <script type="text/javascript" src="{{ pathto('_static/jquery.js', 1) }}"></script>
+  {# Only include other scripts after jQuery is loaded and skip any that might be jQuery itself #}
   {%- for scriptfile in script_files %}
-    {% if 'jquery' not in scriptfile %}
+    {% set lowerfile = scriptfile|lower %}
+    {% if 'jquery' not in lowerfile and 'modernizr' not in lowerfile %}
       {{ js_tag(scriptfile) }}
     {% endif %}
   {%- endfor %}
