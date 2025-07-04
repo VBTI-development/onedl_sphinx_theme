@@ -262,6 +262,8 @@
 
   {% if not embedded %}
 
+  <!-- Ensure jQuery is loaded before any scripts that use it -->
+  <script type="text/javascript" src="{{ pathto('_static/jquery.js', 1) }}"></script>
   {%- for scriptfile in script_files %}
   {{ js_tag(scriptfile) }}
   {%- endfor %}
