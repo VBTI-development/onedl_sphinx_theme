@@ -3,35 +3,16 @@
 {%- if url_root == '#' %}{% set url_root = '' %}{% endif %}
 {%- if not embedded and docstitle %}
 {%- set titlesuffix = " &mdash; "|safe + docstitle|e %}
-{%- set titlesuffix = " &mdash; "|safe + docstitle|e %}
 {%- else %}
-{%- set titlesuffix = "" %}
 {%- set titlesuffix = "" %}
 {%- endif %}
 {%- set lang_attr = 'en' if language == None else (language | replace('_', '-')) %}
 {% import 'theme_variables.jinja' as theme_variables %}
 
-{%- if theme_menu_lang %}
-{%- if theme_menu_lang not in theme_variables.lang_menu_mapping %}
-{%- set shared_menu = theme_variables.lang_menu_mapping['default'] %}
-{%- else %}
-{%- set shared_menu = theme_variables.lang_menu_mapping[theme_menu_lang] %}
-{%- endif %}
-{%- endif %}
-
-{%- if theme_menu_lang %}
-{%- if theme_menu_lang not in theme_variables.lang_menu_mapping %}
-{%- set shared_menu = theme_variables.lang_menu_mapping['default'] %}
-{%- else %}
-{%- set shared_menu = theme_variables.lang_menu_mapping[theme_menu_lang] %}
-{%- endif %}
-{%- endif %}
 
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="{{ lang_attr }}" > <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="{{ lang_attr }}">
-<!--<![endif]-->
+
 
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="{{ lang_attr }}">
@@ -46,10 +27,8 @@
   {% endblock %}
 
   <link rel="shortcut icon" href="{{ pathto('_static/images/logo192.png', 1) }}" />
-  <link rel="shortcut icon" href="{{ pathto('_static/images/logo192.png', 1) }}" />
   {# CANONICAL URL #}
   {% if theme_canonical_url %}
-  <link rel="canonical" href="{{ theme_canonical_url }}{{ pagename }}.html" />
   <link rel="canonical" href="{{ theme_canonical_url }}{{ pagename }}.html" />
   {% endif %}
 
@@ -62,12 +41,6 @@
     title="{% trans docstitle=docstitle|e %}Search within {{ docstitle }}{% endtrans %}"
     href="{{ pathto('_static/opensearch.xml', 1) }}" />
   {% endif %}
-  {% if use_opensearch %}
-  <link rel="search" type="application/opensearchdescription+xml"
-    title="{% trans docstitle=docstitle|e %}Search within {{ docstitle }}{% endtrans %}"
-    href="{{ pathto('_static/opensearch.xml', 1) }}" />
-  {% endif %}
-
   {% endif %}
 
   {# <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css" /> #}
@@ -77,16 +50,10 @@
   <link rel="{{ css.rel }}" href="{{ pathto(css.filename, 1) }}" type="text/css" {% if css.title is not none %}
     title="{{ css.title }}" {% endif %} />
   {%- else %}
-  {%- if css|attr("rel") %}
-  <link rel="{{ css.rel }}" href="{{ pathto(css.filename, 1) }}" type="text/css" {% if css.title is not none %}
-    title="{{ css.title }}" {% endif %} />
-  {%- else %}
   <link rel="stylesheet" href="{{ pathto(css, 1) }}" type="text/css" />
-  {%- endif %}
   {%- endif %}
   {%- endfor %}
   {%- for cssfile in extra_css_files %}
-  <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
   <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
   {%- endfor %}
 
@@ -142,286 +109,185 @@
   {# Keep modernizr in head - http://modernizr.com/docs/#installing #}
   <script src="{{ pathto('_static/js/modernizr.min.js', 1) }}"></script>
   {% include "mathjax_config.html" %}
-  {% include "mathjax_config.html" %}
 
   {% include "fonts.html" %}
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
     integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
-    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 </head>
+
 
 <div class="container-fluid header-holder tutorials-header" id="header-holder">
   <div class="container">
     <div class="header-container">
-      <a class="header-logo" href="{{ theme_logo_url if theme_logo_url is defined else pathto(master_doc) }}"
-        aria-label="VBTI-Development"></a>
-
+      <a class="header-logo" href="{{ theme_logo_url if theme_logo_url is defined else pathto(master_doc) }}" aria-label="VBTI-Development"></a>
       <div class="main-menu">
         <ul>
           {%- for menu in [theme_menu, shared_menu] %}
-          {%- for item in menu %}
-          {%- if item['children'] is defined %}
-          <li {% if item['active'] %}class="active docs-active" {% endif %}>
-            <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
-              <a
-                class="resource-option {% if item['active'] %}with-down-blue-arrow{% else %}with-down-arrow{% endif %}">
-                {{ item['name'] }}
-              <a
-                class="resource-option {% if item['active'] %}with-down-blue-arrow{% else %}with-down-arrow{% endif %}">
-                {{ item['name'] }}
-              </a>
-              <div class="resources-dropdown-menu">
-                {%- for child in item['children'] %}
-                <a class="{%- if child['description'] is not none %}doc-dropdown-option{% endif %} nav-dropdown-item"
-                  href="{{ child['url'] }}" target="_blank">
-                  <span class="dropdown-title">{{ child['name'] }} </span>
-                  <p>{{ child['description'] if child['description'] is not none }}</p>
-                {%- for child in item['children'] %}
-                <a class="{%- if child['description'] is not none %}doc-dropdown-option{% endif %} nav-dropdown-item"
-                  href="{{ child['url'] }}" target="_blank">
-                  <span class="dropdown-title">{{ child['name'] }} </span>
-                  <p>{{ child['description'] if child['description'] is not none }}</p>
-                </a>
-                {%- endfor %}
-              </div>
-                {%- endfor %}
-              </div>
-          </li>
-          {%- else %}
-          <li>
-            <a href="{{ item['url'] }}" target="_blank">{{ item['name'] }}</a>
-          </li>
-          {%- endif %}
-          {%- endfor %}
+            {%- for item in menu %}
+              {%- if item['children'] is defined %}
+                <li {% if item['active'] %}class="active docs-active"{% endif %}>
+                  <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+                    <a class="resource-option {% if item['active'] %}with-down-blue-arrow{% else %}with-down-arrow{% endif %}">
+                      {{ item['name'] }}
+                    </a>
+                    <div class="resources-dropdown-menu">
+                      {%- for child in item['children'] %}
+                        <a class="{%- if child['description'] is not none %}doc-dropdown-option{% endif %} nav-dropdown-item" href="{{ child['url'] }}" target="_blank">
+                          <span class="dropdown-title">{{ child['name'] }} </span>
+                          <p>{{ child['description'] if child['description'] is not none }}</p>
+                        </a>
+                      {%- endfor %}
+                    </div>
+                  </div>
+                </li>
+              {%- else %}
+                <li>
+                  <a href="{{ item['url'] }}" target="_blank">{{ item['name'] }}</a>
+                </li>
+              {%- endif %}
+            {%- endfor %}
           {%- endfor %}
         </ul>
       </div>
-
       <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
     </div>
   </div>
 </div>
 
+
 <body class="pytorch-body">
-
-  {% block extrabody %} {% endblock %}
-
+  {% block extrabody %}{% endblock %}
   {# SIDE NAV, TOGGLES ON MOBILE #}
-  {# SIDE NAV, TOGGLES ON MOBILE #}
-
   <div class="table-of-contents-link-wrapper">
     <span>Table of Contents</span>
     <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
   </div>
-  <div class="table-of-contents-link-wrapper">
-    <span>Table of Contents</span>
-    <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
-  </div>
+
 
   <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
     <div class="pytorch-side-scroll">
       <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         <div class="pytorch-left-menu-search">
           {% block sidebartitle %}
-  <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
-    <div class="pytorch-side-scroll">
-      <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <div class="pytorch-left-menu-search">
-          {% block sidebartitle %}
-
-          {% if theme_display_version %}
-          {%- set nav_version = version %}
-          {% if READTHEDOCS and current_version %}
-          {%- set nav_version = current_version %}
-          {% endif %}
-          {% if nav_version %}
-          <div class="version">
-            {{ nav_version }}
-          </div>
-          {% endif %}
-          {% endif %}
-          {% if theme_display_version %}
-          {%- set nav_version = version %}
-          {% if READTHEDOCS and current_version %}
-          {%- set nav_version = current_version %}
-          {% endif %}
-          {% if nav_version %}
-          <div class="version">
-            {{ nav_version }}
-          </div>
-          {% endif %}
-          {% endif %}
-
-          {% include "searchbox.html" %}
-          {% include "searchbox.html" %}
-
+            {% if theme_display_version %}
+              {%- set nav_version = version %}
+              {% if READTHEDOCS and current_version %}
+                {%- set nav_version = current_version %}
+              {% endif %}
+              {% if nav_version %}
+                <div class="version">
+                  {{ nav_version }}
+                </div>
+              {% endif %}
+            {% endif %}
+            {% include "searchbox.html" %}
           {% endblock %}
         </div>
-          {% endblock %}
-        </div>
-
         {% block menu %}
-        {#
-        The singlehtml builder doesn't handle this toctree call when the
-        toctree is empty. Skip building this for now.
-        #}
-        {% if 'singlehtml' not in builder %}
-        {% set global_toc = toctree(maxdepth=1,
-        collapse=theme_collapse_navigation|tobool,
-        includehidden=theme_includehidden|tobool,
-        titles_only=theme_titles_only|tobool) %}
-        {% endif %}
-        {% if global_toc %}
-        {{ global_toc }}
-        {% else %}
-        <!-- Local TOC -->
-        <div class="local-toc">{{ toc }}</div>
-        {% endif %}
+          {# The singlehtml builder doesn't handle this toctree call when the toctree is empty. Skip building this for now. #}
+          {% if 'singlehtml' not in builder %}
+            {% set global_toc = toctree(maxdepth=1,
+              collapse=theme_collapse_navigation|tobool,
+              includehidden=theme_includehidden|tobool,
+              titles_only=theme_titles_only|tobool) %}
+          {% endif %}
+          {% if global_toc %}
+            {{ global_toc }}
+          {% else %}
+            <!-- Local TOC -->
+            <div class="local-toc">{{ toc }}</div>
+          {% endif %}
         {% endblock %}
       </div>
     </div>
   </nav>
-        {% block menu %}
-        {#
-        The singlehtml builder doesn't handle this toctree call when the
-        toctree is empty. Skip building this for now.
-        #}
-        {% if 'singlehtml' not in builder %}
-        {% set global_toc = toctree(maxdepth=1,
-        collapse=theme_collapse_navigation|tobool,
-        includehidden=theme_includehidden|tobool,
-        titles_only=theme_titles_only|tobool) %}
-        {% endif %}
-        {% if global_toc %}
-        {{ global_toc }}
-        {% else %}
-        <!-- Local TOC -->
-        <div class="local-toc">{{ toc }}</div>
-        {% endif %}
-        {% endblock %}
-      </div>
-    </div>
-  </nav>
+
 
   <div class="pytorch-container">
     <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
       <div class="pytorch-breadcrumbs-wrapper">
         {% include "breadcrumbs.html" %}
       </div>
-  <div class="pytorch-container">
-    <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
-      <div class="pytorch-breadcrumbs-wrapper">
-        {% include "breadcrumbs.html" %}
-      </div>
-
-      <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
-        Shortcuts
-      </div>
-    </div>
       <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
         Shortcuts
       </div>
     </div>
 
+
     <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
       <div class="pytorch-content-left">
-    <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
-      <div class="pytorch-content-left">
+
 
         {%- block content %}
           <!-- Google Tag Manager (noscript) -->
-          <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ theme_analytics_id }}"
-          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+          <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ theme_analytics_id }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <!-- End Google Tag Manager (noscript) -->
           {% if theme_style_external_links|tobool %}
-          <div class="rst-content style-external-links">
+            <div class="rst-content style-external-links">
           {% else %}
-          <div class="rst-content">
-            {% endif %}
-            {% endif %}
+            <div class="rst-content">
+          {% endif %}
             <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
               {%- block document %}
-              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
-                {% if theme_header_note is defined and 'content' in theme_header_note %}
-                <div class="admonition note">
-                  <p class="admonition-title">{{ theme_header_note['title'] if 'title' in theme_header_note else _('Note') }}</p>
-                  <p>{{ theme_header_note['content'] }}</p>
-                </div>
-                {% endif %}
-                {% block body %}{% endblock %}
-              </article>
-              {% if self.comments()|trim %}
-              <div class="articleComments">
-                {% block comments %}{% endblock %}
-              </div>
-              {% endif%}
-              {%- block document %}
-              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
-                {% if theme_header_note is defined and 'content' in theme_header_note %}
-                <div class="admonition note">
-                  <p class="admonition-title">{{ theme_header_note['title'] if 'title' in theme_header_note else _('Note') }}</p>
-                  <p>{{ theme_header_note['content'] }}</p>
-                </div>
-                {% endif %}
-                {% block body %}{% endblock %}
-              </article>
-              {% if self.comments()|trim %}
-              <div class="articleComments">
-                {% block comments %}{% endblock %}
-              </div>
-              {% endif%}
+                <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+                  {% if theme_header_note is defined and 'content' in theme_header_note %}
+                    <div class="admonition note">
+                      <p class="admonition-title">{{ theme_header_note['title'] if 'title' in theme_header_note else _('Note') }}</p>
+                      <p>{{ theme_header_note['content'] }}</p>
+                    </div>
+                  {% endif %}
+                  {% block body %}{% endblock %}
+                </article>
+                {% if self.comments()|trim %}
+                  <div class="articleComments">
+                    {% block comments %}{% endblock %}
+                  </div>
+                {% endif%}
+              {%- endblock %}
             </div>
-            {%- endblock %}
             {% include "footer.html" %}
           </div>
-          {%- endblock %}
-          {%- endblock %}
-        </div>
+        {%- endblock %}
+      </div>
 
-        <div class="pytorch-content-right" id="pytorch-content-right">
-          <div class="pytorch-right-menu" id="pytorch-right-menu">
-            <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
-              {{ toc }}
-            </div>
+      <div class="pytorch-content-right" id="pytorch-content-right">
+        <div class="pytorch-right-menu" id="pytorch-right-menu">
+          <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+            {{ toc }}
           </div>
         </div>
+      </div>
     </section>
   </div>
     </section>
   </div>
+
 
   {% include "versions.html" %}
-
   {% if not embedded %}
-
-  <script type="text/javascript" id="documentation_options" data-url_root="{{ pathto('', 1) }}"
-    src="{{ pathto('_static/documentation_options.js', 1) }}"></script>
-  {%- for scriptfile in script_files %}
-  {{ js_tag(scriptfile) }}
-  {%- endfor %}
-
-  <!-- Ensure jQuery is loaded before any scripts that use it -->
-  <script type="text/javascript" src="{{ pathto('_static/jquery.js', 1) }}"></script>
-
+    <script type="text/javascript" id="documentation_options" data-url_root="{{ pathto('', 1) }}" src="{{ pathto('_static/documentation_options.js', 1) }}"></script>
+    {%- for scriptfile in script_files %}
+      {{ js_tag(scriptfile) }}
+    {%- endfor %}
+    <!-- Ensure jQuery is loaded before any scripts that use it -->
+    <script type="text/javascript" src="{{ pathto('_static/jquery.js', 1) }}"></script>
   {% endif %}
+
 
   <script type="text/javascript" src="{{ pathto('_static/js/vendor/popper.min.js', 1) }}"></script>
   <script type="text/javascript" src="{{ pathto('_static/js/vendor/bootstrap.min.js', 1) }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
   <script type="text/javascript" src="{{ pathto('_static/js/theme.js', 1) }}"></script>
-
   <script type="text/javascript">
     jQuery(function () {
-      SphinxRtdTheme.Navigation.enable({{ 'true' if theme_sticky_navigation | tobool else 'false' }});
-    jQuery(function () {
-      SphinxRtdTheme.Navigation.enable({{ 'true' if theme_sticky_navigation | tobool else 'false' }});
-      });
+      SphinxRtdTheme.Navigation.enable({% if theme_sticky_navigation | tobool %}true{% else %}false{% endif %});
+    });
   </script>
 
   {%- block footer %} {% endblock %}
 
   <!-- Begin Footer -->
+
 
   <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
   </div>
@@ -429,6 +295,7 @@
   <!-- End Footer -->
 
   <!-- Begin Mobile Menu -->
+
 
   <div class="mobile-main-menu">
     <div class="container-fluid">
@@ -439,50 +306,37 @@
         </div>
       </div>
     </div>
-
     <div class="mobile-main-menu-links-container">
       <div class="main-menu">
         <ul>
           {%- for item in theme_menu %}
-          {%- if item['children'] is defined %}
-          <li class="resources-mobile-menu-title" {% if item['active'] %}class="active" {% endif %}>
-            {{ item['name'] }}
-          {%- for item in theme_menu %}
-          {%- if item['children'] is defined %}
-          <li class="resources-mobile-menu-title" {% if item['active'] %}class="active" {% endif %}>
-            {{ item['name'] }}
-          </li>
-          <ul class="resources-mobile-menu-items">
-            {%- for child in item['children'] %}
-            {%- for child in item['children'] %}
-            <li>
-              <a href="{{ child['url'] }}" target="_blank">{{ child['name'] }}</a>
-              <a href="{{ child['url'] }}" target="_blank">{{ child['name'] }}</a>
-            </li>
-            {%- endfor %}
-            {%- endfor %}
-          </ul>
-          {%- else %}
-          <li>
-            <a href="{{ item['url'] }}" target="_blank">{{ item['name'] }}</a>
-          {%- else %}
-          <li>
-            <a href="{{ item['url'] }}" target="_blank">{{ item['name'] }}</a>
-          </li>
-          {%- endif %}
+            {%- if item['children'] is defined %}
+              <li class="resources-mobile-menu-title" {% if item['active'] %}class="active"{% endif %}>
+                {{ item['name'] }}
+              </li>
+              <ul class="resources-mobile-menu-items">
+                {%- for child in item['children'] %}
+                  <li>
+                    <a href="{{ child['url'] }}" target="_blank">{{ child['name'] }}</a>
+                  </li>
+                {%- endfor %}
+              </ul>
+            {%- else %}
+              <li>
+                <a href="{{ item['url'] }}" target="_blank">{{ item['name'] }}</a>
+              </li>
+            {%- endif %}
           {%- endfor %}
-          {%- endif %}
-          {%- endfor %}
+        </ul>
       </div>
     </div>
   </div>
 
   <!-- End Mobile Menu -->
 
-  <script type="text/javascript" src="{{ pathto('_static/js/vendor/anchor.min.js', 1) }}"></script>
 
+  <script type="text/javascript" src="{{ pathto('_static/js/vendor/anchor.min.js', 1) }}"></script>
   <script type="text/javascript">
-    $(document).ready(function () {
     $(document).ready(function () {
       mobileMenu.bind();
       mobileTOC.bind();
@@ -492,13 +346,11 @@
       highlightNavigation.bind();
       mainMenuDropdown.bind();
       filterTags.bind();
-
       // Add class to links that have code blocks, since we cannot create links in code blocks
-      $("article.pytorch-article a span.pre").each(function (e) {
       $("article.pytorch-article a span.pre").each(function (e) {
         $(this).closest("a").addClass("has-code");
       });
-    })
+    });
   </script>
 </body>
 
