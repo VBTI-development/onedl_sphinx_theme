@@ -163,10 +163,6 @@
           {%- for item in menu %}
           {%- if item['children'] is defined %}
           <li {% if item['active'] %}class="active docs-active" {% endif %}>
-          {%- for menu in [theme_menu, shared_menu] %}
-          {%- for item in menu %}
-          {%- if item['children'] is defined %}
-          <li {% if item['active'] %}class="active docs-active" {% endif %}>
             <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
               <a
                 class="resource-option {% if item['active'] %}with-down-blue-arrow{% else %}with-down-arrow{% endif %}">
@@ -193,14 +189,9 @@
               </div>
           </li>
           {%- else %}
-          {%- else %}
           <li>
             <a href="{{ item['url'] }}" target="_blank">{{ item['name'] }}</a>
-            <a href="{{ item['url'] }}" target="_blank">{{ item['name'] }}</a>
           </li>
-          {%- endif %}
-          {%- endfor %}
-          {%- endfor %}
           {%- endif %}
           {%- endfor %}
           {%- endfor %}
