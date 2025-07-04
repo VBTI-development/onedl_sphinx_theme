@@ -9,16 +9,11 @@
 {%- set lang_attr = 'en' if language == None else (language | replace('_', '-')) %}
 {% import 'theme_variables.jinja' as theme_variables %}
 
-{%- if theme_menu_lang %}
-{%- if theme_menu_lang not in theme_variables.lang_menu_mapping %}
-{%- set shared_menu = theme_variables.lang_menu_mapping['default'] %}
-{%- else %}
-{%- set shared_menu = theme_variables.lang_menu_mapping[theme_menu_lang] %}
-{%- endif %}
-{%- endif %}
 
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="{{ lang_attr }}" > <![endif]-->
+
+
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="{{ lang_attr }}">
 <!--<![endif]-->
@@ -100,6 +95,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 </head>
 
+
 <div class="container-fluid header-holder tutorials-header" id="header-holder">
   <div class="container">
     <div class="header-container">
@@ -137,11 +133,11 @@
           </li>
         </ul>
       </div>
-
       <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
     </div>
   </div>
 </div>
+
 
 <body class="pytorch-body">
 
@@ -239,36 +235,35 @@
 
         {%- block content %}
           <!-- Google Tag Manager (noscript) -->
-          <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ theme_analytics_id }}"
-          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+          <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ theme_analytics_id }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <!-- End Google Tag Manager (noscript) -->
           {% if theme_style_external_links|tobool %}
           <div class="rst-content style-external-links">
           {% else %}
-          <div class="rst-content">
-            {% endif %}
+            <div class="rst-content">
+          {% endif %}
             <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
               {%- block document %}
-              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
-                {% if theme_header_note is defined and 'content' in theme_header_note %}
-                <div class="admonition note">
-                  <p class="admonition-title">{{ theme_header_note['title'] if 'title' in theme_header_note else _('Note') }}</p>
-                  <p>{{ theme_header_note['content'] }}</p>
-                </div>
-                {% endif %}
-                {% block body %}{% endblock %}
-              </article>
-              {% if self.comments()|trim %}
-              <div class="articleComments">
-                {% block comments %}{% endblock %}
-              </div>
-              {% endif%}
+                <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+                  {% if theme_header_note is defined and 'content' in theme_header_note %}
+                    <div class="admonition note">
+                      <p class="admonition-title">{{ theme_header_note['title'] if 'title' in theme_header_note else _('Note') }}</p>
+                      <p>{{ theme_header_note['content'] }}</p>
+                    </div>
+                  {% endif %}
+                  {% block body %}{% endblock %}
+                </article>
+                {% if self.comments()|trim %}
+                  <div class="articleComments">
+                    {% block comments %}{% endblock %}
+                  </div>
+                {% endif%}
+              {%- endblock %}
             </div>
-            {%- endblock %}
             {% include "footer.html" %}
           </div>
-          {%- endblock %}
-        </div>
+        {%- endblock %}
+      </div>
 
         <div class="pytorch-content-right" id="pytorch-content-right">
           <div class="pytorch-right-menu" id="pytorch-right-menu">
@@ -281,7 +276,6 @@
     </div>
 
   {% include "versions.html" %}
-
   {% if not embedded %}
 
   <script type="text/javascript" id="documentation_options" data-url_root="{{ pathto('', 1) }}"
@@ -295,11 +289,11 @@
 
   {% endif %}
 
+
   <script type="text/javascript" src="{{ pathto('_static/js/vendor/popper.min.js', 1) }}"></script>
   <script type="text/javascript" src="{{ pathto('_static/js/vendor/bootstrap.min.js', 1) }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
   <script type="text/javascript" src="{{ pathto('_static/js/theme.js', 1) }}"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable({{ 'true' if theme_sticky_navigation|tobool else 'false' }});
@@ -310,12 +304,14 @@
 
   <!-- Begin Footer -->
 
+
   <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
   </div>
 
   <!-- End Footer -->
 
   <!-- Begin Mobile Menu -->
+
 
   <div class="mobile-main-menu">
     <div class="container-fluid">
@@ -326,7 +322,6 @@
         </div>
       </div>
     </div>
-
     <div class="mobile-main-menu-links-container">
       <div class="main-menu">
         <ul>
@@ -424,8 +419,8 @@
 
   <!-- End Mobile Menu -->
 
-  <script type="text/javascript" src="{{ pathto('_static/js/vendor/anchor.min.js', 1) }}"></script>
 
+  <script type="text/javascript" src="{{ pathto('_static/js/vendor/anchor.min.js', 1) }}"></script>
   <script type="text/javascript">
     $(document).ready(function() {
       mobileMenu.bind();
@@ -436,12 +431,11 @@
       highlightNavigation.bind();
       mainMenuDropdown.bind();
       filterTags.bind();
-
       // Add class to links that have code blocks, since we cannot create links in code blocks
       $("article.pytorch-article a span.pre").each(function(e) {
         $(this).closest("a").addClass("has-code");
       });
-    })
+    });
   </script>
 </body>
 </html>
