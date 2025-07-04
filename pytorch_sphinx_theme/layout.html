@@ -265,13 +265,13 @@
   <!-- Ensure jQuery is loaded before any scripts that use it -->
   <script type="text/javascript" src="{{ pathto('_static/jquery.js', 1) }}"></script>
   {%- for scriptfile in script_files %}
-  {{ js_tag(scriptfile) }}
+    {% if 'jquery' not in scriptfile %}
+      {{ js_tag(scriptfile) }}
+    {% endif %}
   {%- endfor %}
 
   {% endif %}
 
-  <!-- Ensure jQuery is loaded before any scripts that use it -->
-  <script type="text/javascript" src="{{ pathto('_static/jquery.js', 1) }}"></script>
   <script type="text/javascript" src="{{ pathto('_static/js/vendor/popper.min.js', 1) }}"></script>
   <script type="text/javascript" src="{{ pathto('_static/js/vendor/bootstrap.min.js', 1) }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
