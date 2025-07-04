@@ -1,70 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   width="13px"
-   height="8px"
-   viewBox="0 0 13 8"
-   version="1.1"
-   id="svg1"
-   sodipodi:docname="chevron-down-blue.svg"
-   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview1"
-     pagecolor="#ffffff"
-     bordercolor="#999999"
-     borderopacity="1"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="157.375"
-     inkscape:cx="6.49722"
-     inkscape:cy="4"
-     inkscape:window-width="2490"
-     inkscape:window-height="1529"
-     inkscape:window-x="70"
-     inkscape:window-y="34"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="desktop" />
-  <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
-  <desc
-     id="desc1">Created with Sketch.</desc>
-  <defs
-     id="defs1" />
-  <g
-     id="desktop"
-     stroke="none"
-     stroke-width="1"
-     fill="none"
-     fill-rule="evenodd">
-    <g
-       id="Cloud-Button-Sequence"
-       transform="translate(-1311.000000, -3818.000000)"
-       stroke="#1BB67F "
-       stroke-width="2">
-      <g
-         id="GetStarted-Copy-3"
-         transform="translate(98.000000, 3249.000000)">
-        <g
-           id="Via-CLoud"
-           transform="translate(855.000000, 212.000000)">
-          <g
-             id="Button"
-             transform="translate(0.000000, 328.000000)">
-            <polyline
-               id="Page-1"
-               transform="translate(364.566667, 32.500000) rotate(90.000000) translate(-364.566667, -32.500000) "
-               points="362 27 367.133333 32.4998402 362 38" />
-          </g>
+<svg width="13px" height="8px" viewBox="0 0 13 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Cloud-Button-Sequence" transform="translate(-1311.000000, -3818.000000)" stroke="#1BB67F" stroke-width="2">
+            <g id="GetStarted-Copy-3" transform="translate(98.000000, 3249.000000)">
+                <g id="Via-CLoud" transform="translate(855.000000, 212.000000)">
+                    <g id="Button" transform="translate(0.000000, 328.000000)">
+                        <polyline id="Page-1" transform="translate(364.566667, 32.500000) rotate(90.000000) translate(-364.566667, -32.500000) " points="362 27 367.133333 32.4998402 362 38"></polyline>
+                    </g>
+                </g>
+            </g>
         </g>
-      </g>
     </g>
-    <path
-       style="fill:#1bb67f;fill-opacity:1;stroke-width:0.00635425"
-       d="M 3.4778572,4.5477161 C 1.7805119,2.963867 0.39226729,1.6660755 0.39286915,1.6637349 0.39494989,1.6556433 1.7471875,0.20961425 1.7511551,0.21123799 c 0.00219,8.9615e-4 1.0854998,1.01100191 2.4073557,2.24467941 1.3218559,1.2336775 2.4057204,2.24305 2.4085878,2.24305 0.00287,0 1.0866939,-1.0093725 2.4085036,-2.24305 1.3218098,-1.2336775 2.4056028,-2.24305004 2.4084288,-2.24305004 0.0028,0 0.275952,0.29023034 0.606947,0.64495631 0.330996,0.35472593 0.635879,0.68124903 0.677518,0.72560683 l 0.07571,0.080651 -3.0860165,2.8804297 C 7.9608775,6.1287471 6.5703182,7.4255034 6.5680548,7.4261909 6.5657915,7.4268791 5.1752025,6.1315652 3.4778572,4.5477161 Z"
-       id="path1" />
-  </g>
 </svg>

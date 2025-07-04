@@ -1,65 +1,17 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-
-<svg
-   version="1.1"
-   id="Layer_1"
-   x="0px"
-   y="0px"
-   viewBox="0.3 0.3 8.2 14.4"
-   enable-background="new 0.3 0.3 8.2 14.4"
-   xml:space="preserve"
-   sodipodi:docname="chevron-right-blue.svg"
-   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg"><defs
-   id="defs1" /><sodipodi:namedview
-   id="namedview1"
-   pagecolor="#ffffff"
-   bordercolor="#999999"
-   borderopacity="1"
-   inkscape:showpageshadow="2"
-   inkscape:pageopacity="0"
-   inkscape:pagecheckerboard="0"
-   inkscape:deskcolor="#d1d1d1"
-   inkscape:zoom="87.430558"
-   inkscape:cx="4.100397"
-   inkscape:cy="7.1999998"
-   inkscape:window-width="2490"
-   inkscape:window-height="1529"
-   inkscape:window-x="70"
-   inkscape:window-y="34"
-   inkscape:window-maximized="1"
-   inkscape:current-layer="Layer_1" />
-<title
-   id="title1">Page 1</title>
-<desc
-   id="desc1">Created with Sketch.</desc>
-<g
-   id="desktop">
-	<g
-   id="_x30_1_x5F_Home"
-   transform="translate(-864.000000, -1683.000000)">
-		<g
-   id="community"
-   transform="translate(-18.000000, 1391.000000)">
-			<g
-   id="cta"
-   transform="translate(741.000000, 277.000000)">
-				<polyline
-   id="Page-1"
-   fill="none"
-   stroke="#1BB67F "
-   stroke-width="2"
-   points="142,16 148.1,22.5 142,29     " />
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0.3 0.3 8.2 14.4" enable-background="new 0.3 0.3 8.2 14.4" xml:space="preserve">
+<title>Page 1</title>
+<desc>Created with Sketch.</desc>
+<g id="desktop">
+	<g id="_x30_1_x5F_Home" transform="translate(-864.000000, -1683.000000)">
+		<g id="community" transform="translate(-18.000000, 1391.000000)">
+			<g id="cta" transform="translate(741.000000, 277.000000)">
+				<polyline id="Page-1" fill="none" stroke="#1BB67F " stroke-width="2" points="142,16 148.1,22.5 142,29 				"/>
 			</g>
 		</g>
 	</g>
 </g>
-<path
-   style="fill:#1bb67f;fill-opacity:1;stroke-width:0.0114376"
-   d="m 0.70913421,13.699142 c -0.39631452,-0.372199 -0.72057186,-0.680212 -0.72057186,-0.684474 0,-0.0043 1.22370735,-1.311731 2.71934985,-2.905489 1.4956422,-1.5937579 2.7193496,-2.9028885 2.7193496,-2.9091792 0,-0.00629 -1.2237074,-1.3154213 -2.7193496,-2.9091792 C 1.2122697,2.6970627 -0.01143765,1.3895789 -0.01143765,1.385301 c 0,-0.00994 1.43528515,-1.35747965 1.44261755,-1.35442562 0.00301,0.0012547 1.5184397,1.61449882 3.3676162,3.58498682 l 3.362139,3.5827056 -0.027074,0.02931 C 8.1027931,7.2615123 1.4763012,14.327027 1.4482024,14.356481 1.4309761,14.374536 1.380227,14.3294 0.70913421,13.699142 Z"
-   id="path1"
-   transform="translate(0.3,0.3)" /></svg>
+</svg>
