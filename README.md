@@ -81,7 +81,7 @@ html_theme_options = {
     # For shared menu: If your project is a part of OpenMMLab's project and 
     # you would like to append Docs and OpenMMLab section to the right
     # of the menu, you can specify menu_lang to choose the language of
-    # shared contents. Available options are 'en' and 'cn'. Any other
+    # shared contents. Available options are 'en'. Any other
     # strings will fall back to 'en'.
     'menu_lang':
     'en',
