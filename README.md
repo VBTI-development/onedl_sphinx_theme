@@ -47,7 +47,7 @@ Here is an example config covering all available options:
 ```python
 html_theme_options = {
     # The target url that the logo directs to. Unset to do nothing
-    'logo_url': 'https://mmocr.readthedocs.io/en/latest/',
+    'logo_url': 'https://onedl-mmengine.readthedocs.io/en/latest/',
     # "menu" is a list of dictionaries where you can specify the content and the 
     # behavior of each item in the menu. Each item can either be a link or a
     # dropdown menu containing a list of links.
@@ -81,7 +81,7 @@ html_theme_options = {
     # For shared menu: If your project is a part of OpenMMLab's project and 
     # you would like to append Docs and OpenMMLab section to the right
     # of the menu, you can specify menu_lang to choose the language of
-    # shared contents. Available options are 'en' and 'cn'. Any other
+    # shared contents. Available options are 'en'. Any other
     # strings will fall back to 'en'.
     'menu_lang':
     'en',

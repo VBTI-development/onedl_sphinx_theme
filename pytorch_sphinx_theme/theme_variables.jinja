@@ -5,32 +5,32 @@
             'children': [
                 {
                     'name': 'MMEngine',
-                    'url': 'https://mmengine.readthedocs.io/en/latest/',
+                    'url': 'https://onedl-mmengine.readthedocs.io/en/latest/',
                 },
                 {
                     'name': 'MMCV',
-                    'url': 'https://mmcv.readthedocs.io/en/latest/',
+                    'url': 'https://onedl-mmcv.readthedocs.io/en/latest/',
                 },
                 {
                     'name': 'MMPreTrain',
                     'url':
-                    'https://mmpretrain.readthedocs.io/en/latest/',
+                    'https://onedl-mmpretrain.readthedocs.io/en/latest/',
                 },
                 {
                     'name': 'MMDetection',
-                    'url': 'https://mmdetection.readthedocs.io/en/latest/',
+                    'url': 'https://onedl-mmdetection.readthedocs.io/en/latest/',
                 },
                 {
                     'name': 'MMSegmentation',
-                    'url': 'https://mmsegmentation.readthedocs.io/en/latest/',
+                    'url': 'https://onedl-mmsegmentation.readthedocs.io/en/latest/',
                 },
                 {
                     'name': 'MMDeploy',
-                    'url': 'https://mmdeploy.readthedocs.io/en/latest/',
+                    'url': 'https://onedl-mmdeploy.readthedocs.io/en/latest/',
                 },
                 {
                     'name': 'MMRotate',
-                    'url': 'https://mmrotate.readthedocs.io/en/latest/',
+                    'url': 'https://onedl-mmrotate.readthedocs.io/en/latest/',
                 },
             ]
         },
@@ -59,66 +59,5 @@
     ]
 -%}
 
-{%- set shared_menu_cn = [
-        {
-            'name':
-            '文档',
-            'children': [
-                {
-                    'name': 'MMEngine',
-                    'url': 'https://mmengine.readthedocs.io/zh_CN/latest/',
-                },
-                {
-                    'name': 'MMCV',
-                    'url': 'https://mmcv.readthedocs.io/zh_CN/latest/',
-                },
-                {
-                    'name': 'MMPreTrain',
-                    'url':
-                    'https://mmpretrain.readthedocs.io/zh_CN/latest/',
-                },
-                {
-                    'name': 'MMDetection',
-                    'url': 'https://mmdetection.readthedocs.io/zh_CN/latest/',
-                },
-                {
-                    'name': 'MMSegmentation',
-                    'url':
-                    'https://mmsegmentation.readthedocs.io/zh_CN/latest/',
-                },
-                {
-                    'name': 'MMDeploy',
-                    'url': 'https://mmdeploy.readthedocs.io/zh_CN/latest/',
-                },
-                {
-                    'name': 'MMRotate',
-                    'url': 'https://mmrotate.readthedocs.io/zh_CN/latest/',
-                },
-            ]
-        },
-        {
-            'name':
-            'VBTI-Development',
-            'children': [
-                {
-                    'name': 'OneDL',
-                    'url': 'https://onedl.ai/'
-                },
-                {
-                    'name': 'VBTI',
-                    'url': 'https://vbti.nl/'
-                },
-                {
-                    'name': 'GitHub',
-                    'url': 'https://github.com/vbti-development/'
-                },
-                {
-                    'name': '官网',
-                    'url': 'https://openmmlab.com/'
-                },
-            ]
-        },
-    ]
--%}
 
-{%- set lang_menu_mapping = {'default': shared_menu_en, 'cn': shared_menu_cn, 'en': shared_menu_en} -%}
+{%- set lang_menu_mapping = {'default': shared_menu_en, 'en': shared_menu_en} -%}
